@@ -1,0 +1,39 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyd
+*.pyo
+*.egg-info/
+*.egg
+*.log
+
+# Poetry specific
+/backend/poetry.lock
+/backend/.venv/
+
+# Docker artifacts
+*.dockerignore
+**/__pycache__/
+**/*.pyc
+
+# Environment variables (potentially sensitive information)
+.env
+
+# Frontend specific
+/frontend/node_modules/
+/frontend/yarn-error.log
+/frontend/yarn.lock
+/frontend/package-lock.json
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# OS Generated
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
