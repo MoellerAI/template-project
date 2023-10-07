@@ -15,6 +15,7 @@ __pycache__/
 /app/backend/poetry.lock
 /app/backend/.venv/
 /app/backend/static/
+/app/.env
 
 # Docker artifacts
 *.dockerignore
