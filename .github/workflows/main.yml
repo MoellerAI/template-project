@@ -1,0 +1,57 @@
+name: CI-pipeline
+ 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  coverage-check:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Check out the code
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    # Step 2: Install dependencies and generate the coverage report
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.12
+
+    - name: Install dependencies
+      run: |
+        pip install poetry
+        cd app/backend/src
+        poetry install
+
+    - name: Generate coverage report
+      run: |
+        cd app/backend
+        TESTING=true poetry run pytest --cov=. --cov-report=xml:cobertura.xml
+        COVERAGE=$(poetry run python3 ../../ci/code_coverage.py)
+        echo "COVERAGE=$COVERAGE" >> $GITHUB_ENV
+        COLOR=$(poetry run python3 ../../ci/color_coverage.py $COVERAGE)
+        echo "COLOR=$COLOR" >> $GITHUB_ENV
+
+    # Step 3: Use the coverage-scope action
+    - name: Check coverage
+      uses: dennisjensen95/coverage-scope@v0.5.0
+      with: 
+        coverage-filepath: app/backend/cobertura.xml
+        branch: main
+        threshold-total: 50
+        threshold-change: 50  
+      
+    - name: Create Awesome Badge
+      uses: schneegans/dynamic-badges-action@v1.6.0
+      with:
+        auth: ${{ secrets.GIST_SECRET }}
+        gistID: f2129f63adbf39fa6d08dd0f9d0d4132
+        filename: code-coverage-template.json
+        label: Code coverage
+        message: ${{ env.COVERAGE }}%
+        color: ${{ env.COLOR }}
