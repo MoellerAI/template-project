@@ -2,21 +2,21 @@ name: CI-pipeline
  
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  coverage-check:
+  build:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
-    # Step 1: Check out the code
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
-    # Step 2: Install dependencies and generate the coverage report
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
@@ -37,7 +37,6 @@ jobs:
         COLOR=$(poetry run python3 ../../ci/color_coverage.py $COVERAGE)
         echo "COLOR=$COLOR" >> $GITHUB_ENV
 
-    # Step 3: Use the coverage-scope action
     - name: Check coverage
       uses: dennisjensen95/coverage-scope@v0.5.0
       with: 
@@ -46,7 +45,7 @@ jobs:
         threshold-total: 50
         threshold-change: 50  
       
-    - name: Create Awesome Badge
+    - name: Create Coverage Badge
       uses: schneegans/dynamic-badges-action@v1.6.0
       with:
         auth: ${{ secrets.GIST_SECRET }}

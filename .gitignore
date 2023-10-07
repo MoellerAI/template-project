@@ -9,6 +9,7 @@ __pycache__/
 *.pytest_cache/ 
 *.coverage
 *cobertura.xml
+*.env
 
 # Poetry specific
 /app/backend/poetry.lock

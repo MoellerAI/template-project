@@ -35,4 +35,4 @@ COPY --from=backend-stage /backend /app/backend
 # Copy frontend build files
 COPY --from=frontend-stage /frontend/backend/static /app/backend/static
 
-CMD ["poetry", "run", "uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload", "--log-level", "debug"]
+CMD ["poetry", "run", "uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
