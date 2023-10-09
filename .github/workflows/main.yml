@@ -31,7 +31,7 @@ jobs:
     - name: Generate coverage report
       run: |
         cd app/backend
-        TESTING=true poetry run pytest --cov=. --cov-report=xml:cobertura.xml
+        TESTING=true poetry run pytest --cov=src tests/ --cov-report=xml:cobertura.xml --cov-report term-missing
         COVERAGE=$(poetry run python3 ../../ci/code_coverage.py)
         echo "COVERAGE=$COVERAGE" >> $GITHUB_ENV
         COLOR=$(poetry run python3 ../../ci/color_coverage.py $COVERAGE)
@@ -42,7 +42,7 @@ jobs:
       with: 
         coverage-filepath: app/backend/cobertura.xml
         branch: main
-        threshold-total: 50
+        threshold-total: 70
         threshold-change: 50  
       
     - name: Create Coverage Badge
