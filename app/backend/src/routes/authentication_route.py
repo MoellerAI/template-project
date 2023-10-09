@@ -1,7 +1,7 @@
 import os
 
 import httpx
-from fastapi import Depends, APIRouter, Request, HTTPException, status
+from fastapi import APIRouter, Request, HTTPException, status
 from fastapi.responses import RedirectResponse
 from urllib.parse import parse_qs
 
