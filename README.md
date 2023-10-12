@@ -1,7 +1,41 @@
-![CI-Build](https://github.com/MoellerAI/template-project/actions/workflows/main.yml/badge.svg)
-![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/MoellerAI/f2129f63adbf39fa6d08dd0f9d0d4132/raw/code-coverage-template.json)
-
 # Template Software Application Project 🚀
+<p align="center">
+  <img src="docs/repo_logo.png" width="150">
+</p>
+<p align="center">
+  <a href="https://github.com/AdrianPayne/fastapi-core/actions/workflows/ci.yml" target="_blank">
+      <img src="https://github.com/MoellerAI/template-project/actions/workflows/main.yml/badge.svg" alt="Test">
+  </a>
+  <a href="https://www.python.org/downloads/release/python-3110/" target="_blank">
+      <img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/MoellerAI/f2129f63adbf39fa6d08dd0f9d0d4132/raw/code-coverage-template.json" alt="Coverage">
+  </a>
+  <a href="https://www.python.org/downloads/release/python-3110/" target="_blank">
+      <img src="https://img.shields.io/badge/Python-3.12-blue?logo=python" alt="Python 3.11">
+  </a>
+</p>
+
+---
+
+<p align="center">
+  <a href="https://www.python.org/">
+      <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54"
+      alt="Python">
+  </a>
+  <a href="https://fastapi.tiangolo.com/">
+      <img src="https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi" alt="Fastapi">
+  </a>  
+  <a href="https://www.docker.com/">
+      <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+  </a>
+  <a href="hhttps://react.dev/">
+      <img src="https://shields.io/badge/react-black?logo=react&style=for-the-badge" alt="React">
+  </a>
+  <a href="hhttps://react.dev/">
+      <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="React">
+  </a>
+</p>
+
+---
 
 Welcome to the **Template Software Application Project**! This isn't just another template - it's your one-stop solution to swiftly bootstrap and scale software applications. Built with the modern developer in mind, this template is perfect for those looking to combine the power of FastAPI's high-performance backend capabilities with React-Vite's lightning-fast frontend framework.
 
