@@ -7,11 +7,11 @@
     "skipLibCheck": true,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "moduleResolution": "Node",
-    "strict": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
@@ -19,7 +19,7 @@
     "types": ["vite/client", "jest"],
     "paths": {
       "@/*": ["./src/*"]
-    },
+    }
   },
   "include": ["src"]
 }
