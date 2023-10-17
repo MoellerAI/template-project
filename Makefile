@@ -10,5 +10,8 @@ run-dev:
 run-prod:
 	cd app && ./start-prod.sh
 
+run-frontend:
+	cd app/frontend && npm run dev
+
 stop:
 	cd app && docker stop backend-container

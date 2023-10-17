@@ -1,62 +1,54 @@
-import { useState } from 'react'
-import React from 'react';
-import '@/app/globals.css'
+import React, { useEffect } from "react";
+import Particles from "react-tsparticles";
+import { loadLinksPreset } from "tsparticles-preset-links";
+import { Main } from "tsparticles-engine";
+import { BsArrowRight } from 'react-icons/bs';
 
-import { Fragment } from 'react';
-import { Transition } from '@headlessui/react';
+import Header from "@/components/homepage/header";
+import Background from "@/components/homepage/background";
 
-const HomePage = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
+const HomePage: React.FC = () => {
+  const particlesInit = async (main: Main) => {
+    await loadLinksPreset(main);
+  };
+
+  const particlesOptions = {
+    preset: "links",
+    particles: {
+      move: {
+        speed: 0.5,
+      },
+    },
+    background: {
+      color: {
+        value: 'transparent',
+      },
+    },
+  };
+
+  useEffect(() => {}, []);
 
   return (
-    <div className="bg-gradient-to-br from-purple-900 to-blue-800 text-white min-h-screen flex flex-col justify-between">
-
-      {/* Top Navigation */}
-      <nav className="flex justify-between items-center p-6">
-        <div className="flex space-x-4">
-          <span className="text-purple-200">🔮</span>
-          <span>API Studio is now in beta</span>
+    <div className="relative h-screen w-screen bg-black overflow-auto">
+      <Background />
+      <Header />
+      {/* The content should be above the background, so we give it a higher z-index */}
+      <div className="relative z-10"> 
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl h-full"> 
+        <div className="pt-80 pb-6">
+          <button className="bg-gradient-to-r from-purple-500 to-purple-700 text-white rounded-full px-8 py-2 inline-flex items-center space-x-2 shadow-inner shadow-purple-400">
+              <span>Go directly to the demo</span>
+              <BsArrowRight className="w-5 h-5" />
+            </button>
         </div>
-        <div className="flex space-x-4">
-          <button className="text-purple-300">Sign in</button>
-          <button className="bg-purple-600 p-2 px-4 rounded">Sign up</button>
-        </div>
-      </nav>
-
-      {/* Main Content */}
-      <div className="flex flex-col items-center justify-center space-y-4">
-        <h1 className="text-5xl font-bold">The API Security Framework</h1>
-        <p>Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.</p>
-        <div className="flex space-x-4">
-          <button className="bg-purple-600 p-2 px-4 rounded hover:bg-purple-500 transition duration-300">Get Started</button>
-          <button className="text-purple-300 flex items-center space-x-2">
-            <span>Read the docs</span>
-            <span>📄</span>
-          </button>
+          <div className="text-left max-w-2xl">
+            <h1 className="text-white text-7xl">Template Project</h1>
+            <h2 className="mt-4 pl-2 text-gray-400 text-4xl">Your first step in the template world. This template can be modified according to your needs.</h2>
+          </div>
         </div>
       </div>
-
-      {/* Example of a transition using Headless UI */}
-      <button onClick={() => setIsOpen(!isOpen)}>Toggle Element</button>
-      <Transition
-        show={isOpen}
-        enter="transition-opacity duration-300"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-        leave="transition-opacity duration-300"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
-      >
-        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 flex justify-center items-center">
-          This is an example of a transition using Headless UI!
-        </div>
-      </Transition>
-
     </div>
   );
-}
+};
 
 export default HomePage;
-
-
-
