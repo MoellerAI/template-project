@@ -1,5 +1,3 @@
-ARG MODE=production
-
 # --- Backend Stage ---
 FROM python:3.12-slim AS backend-stage
 
@@ -22,9 +20,7 @@ WORKDIR /frontend
 
 COPY frontend /frontend/
 RUN npm install
-
-ARG MODE
-RUN if [ "$MODE" = "production" ]; then npm run build; fi
+RUN npm run build
 
 # Copy frontend build to backend stage
 FROM backend-stage
@@ -35,6 +31,5 @@ COPY --from=backend-stage /backend /app/backend
 
 # Copy frontend build files
 COPY --from=frontend-stage /frontend/static /app/backend/static
-COPY --from=frontend-stage /frontend /app/frontend
 
 CMD ["poetry", "run", "uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
