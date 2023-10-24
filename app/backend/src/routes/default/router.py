@@ -13,9 +13,17 @@ def get_token(access_token: str = Cookie(None)):
         raise NotAuthenticated
     return access_token
 
+# @router.get("/")
+# async def root(token: str = Depends(get_token)):
+#     if not os.environ.get("TESTING"):
+#         return FileResponse("./static/index.html")
+#     else:
+#         raise HTTPException(status_code=404, detail="Page not found")
+    
+
 @router.get("/")
-async def root(token: str = Depends(get_token)):
+async def root():
     if not os.environ.get("TESTING"):
-        return FileResponse("./static/index.html")
+        return FileResponse("./frontend/backend/static/index.html")
     else:
         raise HTTPException(status_code=404, detail="Page not found")

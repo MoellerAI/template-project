@@ -1,7 +1,7 @@
 import pytest
 from fastapi.testclient import TestClient
 from src.main import app
-from src.routes.default_route import NotAuthenticated, get_token
+from app.backend.src.routes.default.router import NotAuthenticated, get_token
 
 client = TestClient(app)
 

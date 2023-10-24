@@ -5,7 +5,7 @@ import path from 'path';
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: path.resolve('backend/static'),
+    outDir: path.resolve('static'),
     emptyOutDir: true,
     sourcemap: true
   },
