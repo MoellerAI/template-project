@@ -23,7 +23,4 @@ def get_token(access_token: str = Cookie(None)):
 
 @router.get("/")
 async def root():
-    if not os.environ.get("TESTING"):
-        return FileResponse("./frontend/backend/static/index.html")
-    else:
-        raise HTTPException(status_code=404, detail="Page not found")
+    return FileResponse("./static/index.html")

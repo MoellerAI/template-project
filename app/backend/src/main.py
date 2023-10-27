@@ -22,23 +22,20 @@ app = FastAPI(
     version="0.0.1" 
 ) 
 
-ENV_MODE = os.getenv('ENV', 'production')
 
-# @app.exception_handler(NotAuthenticated)
-# async def not_authenticated_exception_handler(request: Request, exc: NotAuthenticated):
-#     return RedirectResponse(url="/login")
+app.include_router(default_router, tags=["default endpoints"])
 
-@app.get("/")
-async def root():
-    return FileResponse("./static/index.html")
     
-app.mount("/", StaticFiles(directory="/app/backend/static"), name="static")
+app.mount("/", StaticFiles(directory="./static"), name="static")
 
 @app.get("/test")
 def test():
     return HTTPException(404, "test")
 
 
-#app.include_router(default_router, tags=["default endpoints"])
+# @app.exception_handler(NotAuthenticated)
+# async def not_authenticated_exception_handler(request: Request, exc: NotAuthenticated):
+#     return RedirectResponse(url="/login")
+
 #app.include_router(authentication_router, tags=["authentication endpoints"])
  

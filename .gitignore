@@ -14,7 +14,7 @@ __pycache__/
 # Poetry specific
 /app/backend/poetry.lock
 /app/backend/.venv/
-/app/backend/static/
+# /app/backend/static/
 /app/.env
 
 # Docker artifacts
