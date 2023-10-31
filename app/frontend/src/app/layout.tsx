@@ -3,8 +3,7 @@ import Header from "@/components/ui/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 
-// Assuming the image is in the public folder
-const bgImageURL = "../../public/background.webp"; // adjust path accordingly
+const bgImageURL = "./background.webp";
 
 function RootLayout({ children }: { children: React.ReactNode }) {
     return (
