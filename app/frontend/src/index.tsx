@@ -16,15 +16,7 @@ export default function App() {
             <RootLayout>
                 <BrowserRouter>
                     <Routes>
-                        <Route
-                            path="/"
-                            element={
-                                <AuthRoute>
-                                    <HomePage />
-                                </AuthRoute>
-                            }
-                            index
-                        />
+                        <Route path="/" element={<HomePage />} index />
                         <Route path="/login" element={<LoginPage />} index />
                         <Route path="/signup" element={<SignUpPage />} index />
                     </Routes>
