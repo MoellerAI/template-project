@@ -18,7 +18,7 @@ jobs:
         fetch-depth: 0
 
     - name: Display repo env variable
-      run: echo "The value is: $FIREBASE_CONFIG"
+      run: echo "$FIREBASE_CONFIG"
 
     - name: Set up Python
       uses: actions/setup-python@v2
