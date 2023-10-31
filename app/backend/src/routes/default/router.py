@@ -14,3 +14,7 @@ async def root():
 @router.get("/signup")
 async def root():
     return FileResponse("./static/index.html")
+
+@router.get("/about")
+async def root():
+    return FileResponse("./static/index.html")

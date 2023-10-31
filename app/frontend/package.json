@@ -29,6 +29,7 @@
     "dompurify": "^3.0.1",
     "dotenv": "^16.3.1",
     "firebase": "^10.5.2",
+    "flowbite-typography": "^1.0.3",
     "highlight.js": "^11.8.0",
     "lucide-react": "^0.287.0",
     "postcss": "^8.4.27",

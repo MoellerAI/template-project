@@ -6,7 +6,7 @@ import HomePage from "@/app/home/page";
 import LoginPage from "./app/login/page";
 import SignUpPage from "@/app/signup/page";
 import RootLayout from "@/app/layout";
-import AuthRoute from "./components/ui/authRoute";
+import AboutPage from "@/app/about/page";
 import { AuthProvider } from "./components/ui/authContext";
 import "@/app/globals.css";
 
@@ -19,6 +19,7 @@ export default function App() {
                         <Route path="/" element={<HomePage />} index />
                         <Route path="/login" element={<LoginPage />} index />
                         <Route path="/signup" element={<SignUpPage />} index />
+                        <Route path="/about" element={<AboutPage />} index />
                     </Routes>
                 </BrowserRouter>
             </RootLayout>

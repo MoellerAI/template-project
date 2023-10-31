@@ -31,8 +31,8 @@ const Header = () => {
                     <div className="hidden lg:flex justify-center items-center space-x-8" id="navigation-menu">
                         <ul className="flex flex-row">
                             <li>
-                                <a href="/prices" className="text-white px-3 py-2 rounded-md text-sm font-medium">
-                                    Prices
+                                <a href="/about" className="text-white px-3 py-2 rounded-md text-sm font-medium">
+                                    About
                                 </a>
                             </li>
                             <li>
