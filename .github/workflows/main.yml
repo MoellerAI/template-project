@@ -17,6 +17,9 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: Display repo env variable
+      run: echo "The value is: $FIREBASE_CONFIG"
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
@@ -54,13 +57,13 @@ jobs:
         label: Code coverage
         message: ${{ env.COVERAGE }}%
         color: ${{ env.COLOR }}
-        
+
   deploy:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Install flyctl
       run: |
