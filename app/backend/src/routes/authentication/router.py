@@ -11,10 +11,10 @@ def get_firebase_config():
     decoded_data_dict = json.loads(json_str)
     return decoded_data_dict
 
-config = get_firebase_config()
-cred = credentials.Certificate(config)
-firebase_admin.initialize_app(cred, {
-	'databaseURL':"https://template-app-87c8e-default-rtdb.europe-west1.firebasedatabase.app/"
-	})
+# config = get_firebase_config()
+# cred = credentials.Certificate(config)
+# firebase_admin.initialize_app(cred, {
+# 	'databaseURL':"https://template-app-87c8e-default-rtdb.europe-west1.firebasedatabase.app/"
+# 	})
 
 router = APIRouter()

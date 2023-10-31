@@ -5,10 +5,10 @@
 <p align="center">
   <a href="https://github.com/AdrianPayne/fastapi-core/actions/workflows/ci.yml" target="_blank">
       <img src="https://github.com/MoellerAI/template-project/actions/workflows/main.yml/badge.svg" alt="Test">
-  </a>
+  </a> 
   <a href="https://www.python.org/downloads/release/python-3110/" target="_blank">
       <img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/MoellerAI/f2129f63adbf39fa6d08dd0f9d0d4132/raw/code-coverage-template.json" alt="Coverage">
-  </a>
+  </a> 
   <a href="https://www.python.org/downloads/release/python-3110/" target="_blank">
       <img src="https://img.shields.io/badge/Python-3.12-blue?logo=python" alt="Python 3.11">
   </a>
@@ -19,19 +19,19 @@
   <a href="https://www.python.org/">
       <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54"
       alt="Python">
-  </a>
+  </a> 
   <a href="https://fastapi.tiangolo.com/">
       <img src="https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi" alt="Fastapi">
-  </a>  
+  </a> 
   <a href="https://www.docker.com/">
       <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
-  </a>
+  </a> 
   <a href="https://react.dev/">
       <img src="https://shields.io/badge/react-black?logo=react&style=for-the-badge" alt="React">
-  </a>
+  </a> 
   <a href="hhttps://react.dev/">
       <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="React">
-  </a>
+  </a> 
   <a href="https://firebase.google.com/">
       <img src="https://camo.githubusercontent.com/a65fcdf7030d79c00f4c3d8bab84de39107f5777fca4d12f0cb64440015183fe/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f66697265626173652d2532333033394245352e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d6669726562617365" alt="Firebase">
   </a>
