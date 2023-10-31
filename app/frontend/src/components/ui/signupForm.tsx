@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
+import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
+import { auth } from '@/features/firebase/firebase';
+import { useNavigate } from 'react-router-dom'; 
 
 const SignUpForm = () => {
-    const [formData, setFormData] = useState({
+    const navigate = useNavigate(); 
+    const initialFormData = {
         email: '',
         password: '',
         confirmPassword: '',
         terms: false
-    });
+    };
+    const [formData, setFormData] = useState(initialFormData);
+    const [loading, setLoading] = useState(false);
+    const [confirmationMessage, setConfirmationMessage] = useState("");
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -20,9 +27,46 @@ const SignUpForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Here, you would typically handle your form submission, e.g., making an API call.
-        console.log('Form submitted: ', formData);
+
+        setLoading(true);
+
+        // Check if passwords match
+        if (formData.password !== formData.confirmPassword) {
+            console.error("Passwords don't match!");
+            return;
+        }
+
+        // Check if terms are accepted
+        if (!formData.terms) {
+            console.error("Please accept the terms and conditions.");
+            return;
+        }
+
+        // Create user with Firebase
+        createUserWithEmailAndPassword(auth, formData.email, formData.password)
+            .then((userCredential) => {
+                sendEmailVerification(userCredential.user)
+                    .then(() => {
+                        setConfirmationMessage("Verification email sent to " + formData.email + ". Please check your inbox.");
+                        setLoading(false);
+                        setTimeout(() => {
+                            setConfirmationMessage("");
+                            setFormData(initialFormData);
+                            navigate('/login');
+                        }, 5000); // Hide the message after 5 seconds
+                    })
+                    .catch((error) => {
+                        setConfirmationMessage("Error sending verification email. Please try again.");
+                        setLoading(false);
+                    });
+            })
+            .catch((error) => {
+                setConfirmationMessage("Error registering user: " + error.message);
+                setLoading(false);
+            });
     };
+
+
 
     return (
         <section className="dark:bg-gray-900">
@@ -87,12 +131,20 @@ const SignUpForm = () => {
                                     </label>
                                 </div>
                             </div>
-                            <button 
-                                type="submit" 
-                                className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                            >
-                                Create an account
-                            </button>
+                            {loading ? (
+                                <div className="w-full flex justify-center">
+                                    <div className="border-t-4 border-primary-600 rounded-full h-10 w-10 animate-spin"></div>
+                                </div>
+                            ) : confirmationMessage ? (
+                                <div className="my-2 text-center text-primary-600">{confirmationMessage}</div>
+                            ) : (
+                                <button 
+                                    type="submit" 
+                                    className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                                >
+                                    Create an account
+                                </button>
+                            )}
                             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                                 Already have an account? <a href="/login" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here</a>
                             </p>

@@ -82,6 +82,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 - Docker
+- [flyctl](https://fly.io/docs/hands-on/install-flyctl/)
 
 ### Directory Structure
 

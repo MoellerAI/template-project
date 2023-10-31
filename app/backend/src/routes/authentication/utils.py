@@ -5,7 +5,6 @@ import firebase_admin
 from firebase_admin import credentials, auth
 from fastapi import HTTPException, status
 
-
 def get_firebase_config():
     base64_decoded_bytes = base64.b64decode(os.getenv("FIREBASE_CONFIG"))
     json_str = base64_decoded_bytes.decode('utf-8')
