@@ -6,3 +6,11 @@ router = APIRouter()
 @router.get("/")
 async def root():
     return FileResponse("./static/index.html")
+
+@router.get("/login")
+async def root():
+    return FileResponse("./static/index.html")
+
+@router.get("/signup")
+async def root():
+    return FileResponse("./static/index.html")

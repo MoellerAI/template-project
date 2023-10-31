@@ -2,7 +2,7 @@ name: CI-pipeline
  
 on:
   push:
-    branches: [main]
+    brancshes: [main]
   pull_request:
     branches: [main]
 
@@ -39,6 +39,8 @@ jobs:
         echo "COVERAGE=$COVERAGE" >> $GITHUB_ENV
         COLOR=$(poetry run python3 ../../ci/color_coverage.py $COVERAGE)
         echo "COLOR=$COLOR" >> $GITHUB_ENV
+      env:
+          FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
 
     - name: Check coverage
       uses: dennisjensen95/coverage-scope@v0.5.0
@@ -59,6 +61,7 @@ jobs:
         color: ${{ env.COLOR }}
 
   deploy:
+    needs: build
     name: Deploy app
     runs-on: ubuntu-latest
     steps:
