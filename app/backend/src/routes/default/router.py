@@ -18,3 +18,7 @@ async def root():
 @router.get("/about")
 async def root():
     return FileResponse("./static/index.html")
+
+@router.get("/contact")
+async def root():
+    return FileResponse("./static/index.html")

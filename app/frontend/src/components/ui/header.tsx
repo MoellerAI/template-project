@@ -41,8 +41,8 @@ const Header = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="/contributing" className="text-white px-3 py-2 rounded-md text-sm font-medium">
-                                    Contributing
+                                <a href="/contact" className="text-white px-3 py-2 rounded-md text-sm font-medium">
+                                    Contact
                                 </a>
                             </li>
                             <li>
